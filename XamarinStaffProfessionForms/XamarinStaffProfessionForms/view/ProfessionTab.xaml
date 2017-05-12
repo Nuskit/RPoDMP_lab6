@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinStaffProfessionForms.view.ProfessionTab"
+             Title="Profession">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="Button_AddClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView ItemsSource="{Binding ProfessionItems}" ItemSelected="profession_selected" RowHeight="70">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding Name}"/>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>

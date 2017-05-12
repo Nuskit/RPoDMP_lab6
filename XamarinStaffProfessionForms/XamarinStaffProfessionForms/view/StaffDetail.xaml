@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinStaffProfessionForms.view.StaffDetail"
+             Title="StaffDetail"
+             NavigationPage.HasBackButton="{Binding IsCanReturn}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding Action}" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentView>
+        <StackLayout>
+            <Grid VerticalOptions="Fill">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="{Binding Image.ImageName}" Grid.Column="0" BackgroundColor="Firebrick">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Image_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <StackLayout Grid.Column="1" VerticalOptions="FillAndExpand">
+                        <Entry Placeholder="Title" Text="{Binding Title}" IsEnabled="False"/>
+                        <Label Text="{Binding Profession.Name}" BackgroundColor="Azure" HorizontalOptions="FillAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Profession_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+
+                <ScrollView VerticalOptions="FillAndExpand" Grid.Row="1">
+                    <Editor Text="{Binding Description}" IsEnabled="{Binding IsEditing}" Completed="Description_Completed"/>
+                </ScrollView>
+            </Grid>
+
+        </StackLayout>
+    </ContentView>
+</ContentPage>
